@@ -5,11 +5,12 @@
     </head>
 
     <body>
-        <div class="message"></div>
+        <div class="message">Select either Heads or Tails</div>
         <button type="button">Heads</button>
         <button type="button">Tails</button>
         
         <script>
+            const coinArray = ['Heads', 'Tails'];
             const message = document.querySelector(".message");
             const buttons = document.querySelectorAll("button");
             console.log(buttons);
@@ -20,7 +21,9 @@
             }
 
             function tossCoin(e) {
-                console.log(e.target.innerText);
+                console.log("player:" + e.target.innerText);
+                let computerToss = Math.floor(Math.random()*2);
+                console.log("computer:" + coinArray[computerToss]);
             }
 
 
