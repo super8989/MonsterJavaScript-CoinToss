@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>JavaScript: CoinToss</title>
+    </head>
+
+    <body>
+        <div class="output">Select either Heads or Tails</div>
+        <button type="button">Heads</button>
+        <button type="button">Tails</button>
+
+        <script>
+            const buttons = document.querySelectorAll("button");
+
+            console.log(buttons);
+
+            for (let i=0; i < buttons.length; i++) {
+                buttons[i].addEventListener("click", coinToss);
+            }
+
+            function coinToss(e) {
+                let playerGuess = e.target.innerText;
+                let computerToss = Math.floor(Math.random()*2);
+                let computerGuess = buttons[computerToss];
+
+                console.log(computerGuess);
+            }
+        
+        </script>
+    </body>
+</html>
