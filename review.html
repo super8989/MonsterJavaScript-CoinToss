@@ -1,6 +1,7 @@
 <html>
     <head>
         <title>JavaScript: CoinToss</title>
+        <link rel="stylesheet" href="style.css">
     </head>
 
     <body>
@@ -9,7 +10,10 @@
         <button type="button">Tails</button>
 
         <script>
+            const coinArray = ['Heads', 'Tails'];
+            let score = [0, 0];
             const buttons = document.querySelectorAll("button");
+            const message = document.querySelector(".output");
 
             console.log(buttons);
 
@@ -18,11 +22,28 @@
             }
 
             function coinToss(e) {
+                
                 let playerGuess = e.target.innerText;
                 let computerToss = Math.floor(Math.random()*2);
-                let computerGuess = buttons[computerToss];
+                let computerGuess = coinArray[computerToss];
 
+                message.innerHTML = `Player selected ${playerGuess}.<br> Computer selected ${computerGuess}<br><br>`;
+                
+                console.log(playerGuess);
                 console.log(computerGuess);
+
+                if (playerGuess === computerGuess) {
+                    score[0]++;
+                    result = 'Player wins';
+                    
+                } else {
+                    score[1]++;
+                    result = 'Computer wins';
+                }
+
+                message.innerHTML += `${result} <br> Player: ${score[0]} <br> Computer: ${score[1]}`; 
+            
+                console.log(score);
             }
         
         </script>
